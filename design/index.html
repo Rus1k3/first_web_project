@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OneMail — Получение одного письма</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(120deg, #0d6efd, #6610f2, #20c997);
+            background-size: 300% 300%;
+            animation: gradientMove 12s ease infinite;
+            color: white;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .glass {
+            background: rgba(0,0,0,0.45);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+        }
+
+        footer {
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">OneMail</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Главная</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Как это работает</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">API</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Войти</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+<main class="flex-grow-1 text-center">
+
+    <section class="py-5">
+        <div class="container glass">
+            <h1 class="display-3 fw-bold mb-4">Получите одно письмо за секунды</h1>
+            <p class="lead mb-4">
+                Создайте временный email, получите письмо через Fastmail API и используйте его в тестах или регистрации.
+            </p>
+            <a href="#" class="btn btn-warning btn-lg px-5 py-3 fs-4">🚀 Попробовать</a>
+        </div>
+    </section>
+
+    <section class="py-5">
+        <div class="container glass">
+            <h2 class="mb-5">Почему OneMail крутой?</h2>
+
+            <div class="row g-4">
+
+                <div class="col-12 col-md-4">
+                    <h4>⚡ Мгновенно</h4>
+                    <p>Получение одного письма без ожидания и спама</p>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <h4>🔐 Безопасно</h4>
+                    <p>Временные адреса без хранения личных данных</p>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <h4>🧪 Для разработчиков</h4>
+                    <p>Идеально для тестов регистрации, подтверждений и API</p>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <h4>🐍 Python Backend</h4>
+                    <p>Разработан на Python и работает быстро</p>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <h4>📡 Fastmail API</h4>
+                    <p>Надёжное получение писем через проверенный сервис</p>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <h4>💡 Просто</h4>
+                    <p>Одна кнопка → один email → готово</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer class="text-center py-4 mt-auto">
+    <div class="container">
+        <p class="mb-1">© 2026 OneMail</p>
+        <div>
+            <a href="#" class="text-white me-2">GitHub</a>
+            <a href="#" class="text-white me-2">Telegram</a>
+            <a href="#" class="text-white">Docs</a>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>
