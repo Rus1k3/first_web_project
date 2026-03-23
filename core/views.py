@@ -8,8 +8,8 @@ def home(request):
         'welcome_text': 'Добро пожаловать на OneMail!'
     }
 
-    return render(request, 'ваше_приложение/index.html', context)
+    return render(request, 'core/index.html', context)
 
 
 def about(request):
-    return render(request, 'ваше_приложение/about.html')
+    return render(request, 'core/about.html')
