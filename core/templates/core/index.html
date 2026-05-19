@@ -1,3 +1,4 @@
+
 {% extends 'core/base.html' %}
 
 {% block title %}
@@ -47,4 +48,52 @@
     </div>
 </section>
 
+<section class="py-5">
+    <div class="container">
+
+        <h2 class="mb-5 fw-bold">📨 Примеры Входящих Писем</h2>
+
+        <div class="row g-4">
+
+            {% for email in emails %}
+
+            <div class="col-md-6 col-lg-4">
+                <div class="glass h-100 text-start">
+
+                    <h4 class="fw-bold mb-3">
+                        {{ email.subject }}
+                    </h4>
+
+                    <p>
+                        <strong>From:</strong>
+                        {{ email.sender }}
+                    </p>
+
+                    <p>
+                        {{ email.message|truncatewords:20 }}
+                    </p>
+
+                    <small class="text-light">
+                        {{ email.received_at }}
+                    </small>
+
+                </div>
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+                <div class="glass text-center">
+                    <h3>К сожалению, писем пока нет 📭</h3>
+                </div>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
 {% endblock %}
+

@@ -1,11 +1,15 @@
 from django.shortcuts import render
+from .models import EmailMessage
 
-# Create your views here.
+
 def home(request):
+
+    emails = EmailMessage.objects.all()
 
     context = {
         'title': 'Главная страница',
-        'welcome_text': 'Добро пожаловать на OneMail!'
+        'welcome_text': 'Добро пожаловать на OneMail!',
+        'emails': emails
     }
 
     return render(request, 'core/index.html', context)
