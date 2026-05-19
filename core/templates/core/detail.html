@@ -1,0 +1,53 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+{{ email.subject }}
+{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="glass text-start">
+
+            <h1 class="fw-bold mb-4">
+                {{ email.subject }}
+            </h1>
+
+            <p>
+                <strong>From:</strong>
+                {{ email.sender }}
+            </p>
+
+            <p>
+                <strong>To:</strong>
+                {{ email.recipient }}
+            </p>
+
+            <p>
+                <strong>Date:</strong>
+                {{ email.received_at }}
+            </p>
+
+            <hr>
+
+            <p class="fs-5">
+                {{ email.message }}
+            </p>
+
+            <a href="{% url 'home' %}"
+               class="btn btn-warning mt-4">
+
+                ← Назад
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
