@@ -21,7 +21,11 @@ from core import views
 urlpatterns = [ 
     path('', views.home, name='home'), 
     path('about/', views.about, name='about'), 
-    path( 'email/<int:pk>/', views.email_detail, name='email_detail' ), 
+    path('email/<int:pk>/', views.email_detail, name='email_detail' ), 
     path('admin/', admin.site.urls),
     path('contact/', views.contact, name='contact'),
+    path('create/', views.email_create, name='email_create'),
+    path('email/<int:pk>/edit/', views.email_update, name='email_update'),
     ]
+
+

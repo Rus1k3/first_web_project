@@ -1,0 +1,58 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+{{ form_title }}
+{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="glass text-start">
+
+            <h1 class="mb-4">
+                {{ form_title }}
+            </h1>
+
+            <form method="post">
+
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    {{ form.sender.label_tag }}
+                    {{ form.sender }}
+                </div>
+
+                <div class="mb-3">
+                    {{ form.recipient.label_tag }}
+                    {{ form.recipient }}
+                </div>
+
+                <div class="mb-3">
+                    {{ form.subject.label_tag }}
+                    {{ form.subject }}
+                </div>
+
+                <div class="mb-3">
+                    {{ form.message.label_tag }}
+                    {{ form.message }}
+                </div>
+
+                <button type="submit"
+                        class="btn btn-warning">
+
+                    Сохранить
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

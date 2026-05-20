@@ -1,5 +1,5 @@
 from django import forms
-
+from .models import EmailMessage
 
 class FeedbackForm(forms.Form):
     subject = forms.CharField(
@@ -24,3 +24,34 @@ class FeedbackForm(forms.Form):
             'rows': 5
         })
     )
+
+
+class EmailMessageForm(forms.ModelForm):
+    class Meta:
+        model = EmailMessage
+
+        fields = [
+            'sender',
+            'recipient',
+            'subject',
+            'message'
+        ]
+
+        widgets = {
+            'sender': forms.TextInput(attrs={
+                'class': 'form-control'
+            }),
+
+            'recipient': forms.TextInput(attrs={
+                'class': 'form-control'
+            }),
+
+            'subject': forms.TextInput(attrs={
+                'class': 'form-control'
+            }),
+
+            'message': forms.Textarea(attrs={
+                'class': 'form-control',
+                'rows': 6
+            }),
+        }
