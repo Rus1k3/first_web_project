@@ -34,7 +34,9 @@ class EmailMessageForm(forms.ModelForm):
             'sender',
             'recipient',
             'subject',
-            'message'
+            'message',
+            'image',
+            'tags'
         ]
 
         widgets = {
@@ -54,4 +56,10 @@ class EmailMessageForm(forms.ModelForm):
                 'class': 'form-control',
                 'rows': 6
             }),
+            'image': forms.ClearableFileInput(attrs={
+                'class': 'form-control'
+            }),
+            'tags': forms.SelectMultiple(attrs={
+                'class': 'form-control'
+            })
         }

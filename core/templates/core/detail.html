@@ -30,7 +30,10 @@
                 <strong>Date:</strong>
                 {{ email.received_at }}
             </p>
-
+            {% if email.image %} 
+            <img src="{{ email.image.url }}" 
+                class="img-fluid rounded mb-4"> 
+            {% endif %}
             <hr>
 
             <p class="fs-5">
@@ -51,8 +54,6 @@
                 ← Назад
 
             </a>
-
-
 
         </div>
 

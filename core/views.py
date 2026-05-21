@@ -50,7 +50,7 @@ def contact(request):
 def email_create(request):
 
     if request.method == 'POST':
-        form = EmailMessageForm(request.POST)
+        form = EmailMessageForm( request.POST, request.FILES )
 
         if form.is_valid():
             email = form.save(commit=False) 
@@ -84,6 +84,7 @@ def email_update(request, pk):
 
         form = EmailMessageForm(
             request.POST,
+            request.FILES,
             instance=email
         )
 
