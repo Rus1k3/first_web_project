@@ -49,16 +49,72 @@
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
+
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'contact' %}">Контакты</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'home' %}">Главная</a>
+                        <a class="nav-link"
+                        href="{% url 'home' %}">
+
+                            Главная
+
+                        </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'about' %}">О сервисе</a>
+                        <a class="nav-link"
+                        href="{% url 'about' %}">
+
+                            О сервисе
+
+                        </a>
                     </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                        href="{% url 'contact' %}">
+
+                            Контакты
+
+                        </a>
+                    </li>
+
+                    {% if user.is_authenticated %}
+
+                    <li class="nav-item">
+                        <span class="nav-link">
+                            Привет, {{ user.username }}
+                        </span>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                        href="{% url 'logout' %}">
+
+                            Выход
+
+                        </a>
+                    </li>
+
+                    {% else %}
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                        href="{% url 'login' %}">
+
+                            Вход
+
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link"
+                        href="{% url 'register' %}">
+
+                            Регистрация
+
+                        </a>
+                    </li>
+
+                    {% endif %}
 
                 </ul>
             </div>

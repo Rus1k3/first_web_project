@@ -26,6 +26,8 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('create/', views.email_create, name='email_create'),
     path('email/<int:pk>/edit/', views.email_update, name='email_update'),
+    path( 'accounts/', include('django.contrib.auth.urls') ),
+    path( 'accounts/register/', views.register, name='register' ),
     ]
 
 

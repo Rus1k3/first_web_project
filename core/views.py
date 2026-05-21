@@ -1,15 +1,8 @@
-from django.shortcuts import (
-    render,
-    redirect,
-    get_object_or_404
-)
-
+from django.shortcuts import (render, redirect, get_object_or_404)
 from .models import EmailMessage
-from .forms import (
-    FeedbackForm,
-    EmailMessageForm
-)
-
+from .forms import (FeedbackForm, EmailMessageForm)
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.forms import UserCreationForm
 
 def home(request):
     emails = EmailMessage.objects.all()
@@ -53,14 +46,18 @@ def contact(request):
         'form': form
     })
 
-
+@login_required
 def email_create(request):
 
     if request.method == 'POST':
         form = EmailMessageForm(request.POST)
 
         if form.is_valid():
-            email = form.save()
+            email = form.save(commit=False) 
+
+            email.author = request.user 
+
+            email.save()
 
             return redirect(
                 'email_detail',
@@ -75,7 +72,7 @@ def email_create(request):
         'form_title': 'Создание письма'
     })
 
-
+@login_required
 def email_update(request, pk):
 
     email = get_object_or_404(
@@ -107,3 +104,21 @@ def email_update(request, pk):
         'form': form,
         'form_title': 'Редактирование письма'
     })
+
+def register(request):
+
+    if request.method == 'POST':
+        form = UserCreationForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+
+            return redirect('login')
+
+    else:
+        form = UserCreationForm()
+
+    return render(request, 'registration/register.html', {
+        'form': form
+    })
+
